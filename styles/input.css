@@ -16,9 +16,17 @@ body {
     color: #E89E1D;
 }
 
+.orange-bg {
+    background-color: #E89E1D;
+    color: black;
+}
+
 .hover-orange:hover {
     color: #E89E1D;
 }
+
+
+
 
 .blue-text { 
     color: #2B3D4F;
