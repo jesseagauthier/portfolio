@@ -20,6 +20,14 @@ body {
     background-color: #E89E1D;
     color: black;
 }
+.gold-bg-hover {
+    transition: 1s;
+}
+.gold-bg-hover:hover {
+    color: black;
+    transition: 1s;
+    background-color: #efd81d;
+}
 
 .hover-orange:hover {
     color: #E89E1D;
@@ -50,4 +58,11 @@ body {
 
 p { 
     font-family: 'Raleway', sans-serif;
+}
+
+main h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2B3D4F;
+    margin: 8px 0;
 }
