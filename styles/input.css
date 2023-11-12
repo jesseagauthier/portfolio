@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.inner-wrapper {
+    max-width: 81vw;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #e0ffff;
+}
+
+
+.orange-text {
+    color: #E89E1D;
+}
+
+.hover-orange:hover {
+    color: #E89E1D;
+}
+
+.blue-text { 
+    color: #2B3D4F;
+}
+
+.blue-bg {
+    color: white;
+    background-color: #2B3D4F;
+}
+.hover-blue-text:hover { 
+    color: #2B3D4F;
+}
+
+.heading-text {
+    font-family: 'Montserrat', sans-serif;
+}
+.sub-heading-text {
+    font-family: 'Roboto', sans-serif;
+}
+.text {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+p { 
+    font-family: 'Raleway', sans-serif;
+}
