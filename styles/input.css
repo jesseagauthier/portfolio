@@ -7,8 +7,13 @@
     margin: 0 auto;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #e0ffff;
+    scroll-behavior: smooth;
 }
 
 
