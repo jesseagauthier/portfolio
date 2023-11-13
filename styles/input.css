@@ -66,3 +66,22 @@ main h3 {
     font-family: 'Raleway', sans-serif;
 }
 
+
+.lightblue {
+    background-color: #2980b9;
+}
+
+.lightblue-hover:hover {
+    background-color: #2980b9;
+    color: white;
+}
+.project {
+    border-radius: 10px;
+}
+
+.lightgreen:hover {
+    background-color: #1abc9c;
+}
+.bluewood {
+    background-color: #2b3d4f;
+}

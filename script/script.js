@@ -14,12 +14,12 @@ const navigationLinks = [
 	},
 	{
 		name: 'gitHub',
-		url: '#',
+		url: 'https://github.com/jesseagauthier',
 		mobile: 'hidden'
 	},
 	{
 		name: 'codePen',
-		url: '#',
+		url: 'https://codepen.io/jessegauthier1994',
 		mobile: 'hidden'
 	},
 ]
@@ -30,7 +30,7 @@ const portfolioItems = [
 		image: './assets/imagegallery2.png',
 		disc: 'Step into our captivating interactive photography gallery, where stunning moments meet JavaScript artistry.',
 		link: 'https://jesseagauthier.github.io/Interactive-Gallery/',
-		tags: ['JavaScript', 'Local API', 'Tailwind CSS'],
+		tags: ['JavaScript', 'Loops', 'Tailwind CSS'],
 	},
 	{
 		title: 'Pokemon',
@@ -38,15 +38,15 @@ const portfolioItems = [
 		image: './assets/pokemon2.png',
 		disc: 'Pokemon: Catch Em All App -Hunt & Collect 800+ creatures! Enjoy the thrilling adventure with stunning visuals, battles, and seamless API integration for a captivating experience.',
 		link: 'https://jesseagauthier.github.io/pokemon/',
-		tags: ['JavaScript', 'Storage', 'API Fetch'],
+		tags: ['JavaScript', 'Local Storage', 'API'],
 	},
 	{
 		title: 'Real Adulting Home Page',
-		type: 'ui',
+		type: 'Web Development',
 		image: './assets/rd-home.png',
 		disc: 'Between student loan debts, work demands, feeling unsure if we should invest for retirement while the world is burning, the pressures of balancing identifying red flags with the fact that our eggs have a shelf life, let alone remembering to keep toilet paper stocked in our house—the responsibilities of adult life can often feel overwhelming, stressful, and chaotic. Making you feel like you’re just barely keeping it together as you go along. Did they even teach us how to be an adult in high school? Why are there so many blogs on how to budget? How do taxes even work?',
 		link: 'https://realadulting101.ca/',
-		tags: ['Php', 'WordPress', 'Collaboration'],
+		tags: ['Php', 'WordPress', 'Custom Theme'],
 	},
 	{
 		title: 'Up Media Home Page',
@@ -54,7 +54,7 @@ const portfolioItems = [
 		image: './assets/upmedia.png',
 		disc: 'AWARD WINNING VANCOUVER VIDEO PRODUCTION COMPANY',
 		link: 'https://upmedia.video/',
-		tags: ['Php', 'WordPress', 'Collaboration'],
+		tags: ['Php', 'WordPress', 'Elementor'],
 	},
 	{
 		title: 'W Flowers Contact Page',
@@ -72,6 +72,14 @@ const portfolioItems = [
 		disc: 'Our purpose is to design an app that addresses the concerns surrounding variable garbage collection times in Ottawa, reducing the risk of missed pickups and the accumulation of garbage left out for extended periods. By providing certainty in collection schedules, it helps prevent the unhealthy environment caused by uncollected garbage and the potential for it to be blown around during inclement weather, benefiting both people and animals.',
 		link: 'https://www.figma.com/file/YlbPOHAJ74GZAgk56PK5p2/Portfolio-Pieces?type=design&node-id=101%3A26&mode=design&t=GomxTJao7DabgkWm-1',
 		tags: ['ui', 'Figma', 'Mockup'],
+	},
+	{
+		title: 'Custom Wordpress Theme',
+		type: 'wordpress',
+		image: '/assets/fionawongphotography.png',
+		disc: 'Our purpose is to design an app that addresses the concerns surrounding variable garbage collection times in Ottawa, reducing the risk of missed pickups and the accumulation of garbage left out for extended periods. By providing certainty in collection schedules, it helps prevent the unhealthy environment caused by uncollected garbage and the potential for it to be blown around during inclement weather, benefiting both people and animals.',
+		link: 'https://dev-cms2-project.pantheonsite.io/',
+		tags: ['Hosting', 'PHP', 'Custom Wordpress Theme'],
 	},
 ];
 
@@ -91,10 +99,10 @@ function renderProjects(portfolioItems) {
 
     for (const project of portfolioItems) {
         projects.insertAdjacentHTML(`beforeend`, `
-            <div class="p-8">
-                <h4 class="capitalize sub-heading-text">${project.title}</h4>
-                <img src="${project.image}">
-                <ul>
+            <div class="p-8 shrink md:basis-2/5 lightblue project text-white text-center lightgreen hover:scale-110 transition duration-700 hover:z-40">
+                <h4 class="capitalize text-medium text-2xl sub-heading-text mb-4">${project.title}</h4>
+                <a href="${project.link}" target="_blank" rel="noopener noreferrer"><img src="${project.image}"></a>
+                <ul class="flex justify-evenly mt-3 capitalize">
                     ${project.tags.map(tag => `<li>${tag}</li>`).join('')}
                 </ul>
             </div>`)
