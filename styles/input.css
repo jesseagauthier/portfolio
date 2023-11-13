@@ -12,6 +12,17 @@ body {
 }
 
 
+p { 
+    font-family: 'Raleway', sans-serif;
+}
+
+main h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2B3D4F;
+    margin: 8px 0;
+}
+
 .orange-text {
     color: #E89E1D;
 }
@@ -55,14 +66,3 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-
-p { 
-    font-family: 'Raleway', sans-serif;
-}
-
-main h3 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #2B3D4F;
-    margin: 8px 0;
-}
