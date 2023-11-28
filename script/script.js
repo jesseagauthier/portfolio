@@ -1,4 +1,4 @@
-`use strict`
+;`use strict`
 const navigationLinks = [
 	{
 		name: 'about',
@@ -15,15 +15,23 @@ const navigationLinks = [
 	{
 		name: 'gitHub',
 		url: 'https://github.com/jesseagauthier',
-		mobile: 'hidden'
+		mobile: 'hidden',
 	},
 	{
 		name: 'codePen',
 		url: 'https://codepen.io/jessegauthier1994',
-		mobile: 'hidden'
+		mobile: 'hidden',
 	},
 ]
 const portfolioItems = [
+	{
+		title: 'The County Cooperage',
+		type: 'Shopify',
+		image: '/assets/thecountycooperage.png',
+		disc: '',
+		link: 'https://www.thecountycooperage.ca',
+		tags: ['Custom Theme', 'Shopify', 'Design'],
+	},
 	{
 		title: 'interactive image gallery',
 		type: 'js',
@@ -81,31 +89,41 @@ const portfolioItems = [
 		link: 'https://dev-cms2-project.pantheonsite.io/',
 		tags: ['Hosting', 'PHP', 'Custom Wordpress Theme'],
 	},
-];
+]
 
-
-renderNavigation (navigationLinks)
+renderNavigation(navigationLinks)
 renderProjects(portfolioItems)
-function renderNavigation (navigationLinks) {
-    const navigation = document.getElementById('navigation')
-    for (const link of navigationLinks) {
-        navigation.insertAdjacentHTML(`beforeend`, `
-        <li class="mx-2 p-2 h-fit ${link.mobile} md:block"><a class="sub-heading-text text-lg font-medium hover-orange " href="${link.url}">${link.name}</a></li>`)
-    }
+function renderNavigation(navigationLinks) {
+	const navigation = document.getElementById('navigation')
+	for (const link of navigationLinks) {
+		navigation.insertAdjacentHTML(
+			`beforeend`,
+			`
+        <li class="mx-2 p-2 h-fit ${link.mobile} md:block"><a class="sub-heading-text text-lg font-medium hover-orange " href="${link.url}">${link.name}</a></li>`
+		)
+	}
 }
 
 function renderProjects(portfolioItems) {
-    const projects = document.getElementById('projects')
+	const projects = document.getElementById('projects')
 
-    for (const project of portfolioItems) {
-        projects.insertAdjacentHTML(`beforeend`, `
+	for (const project of portfolioItems) {
+		projects.insertAdjacentHTML(
+			`beforeend`,
+			`
             <div class="p-8 shrink md:basis-2/5 lightblue project text-white text-center lightgreen hover:scale-110 transition duration-700 hover:z-40">
-                <h4 class="capitalize text-medium text-2xl sub-heading-text mb-4">${project.title}</h4>
-                <a href="${project.link}" target="_blank" rel="noopener noreferrer"><img src="${project.image}"></a>
+                <h4 class="capitalize text-medium text-2xl sub-heading-text mb-4">${
+									project.title
+								}</h4>
+                <a href="${
+									project.link
+								}" target="_blank" rel="noopener noreferrer"><img src="${
+									project.image
+								}"></a>
                 <ul class="flex justify-evenly mt-3 capitalize">
-                    ${project.tags.map(tag => `<li>${tag}</li>`).join('')}
+                    ${project.tags.map((tag) => `<li>${tag}</li>`).join('')}
                 </ul>
-            </div>`)
-    }
+            </div>`
+		)
+	}
 }
-
