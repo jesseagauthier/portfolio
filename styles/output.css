@@ -2514,6 +2514,15 @@ main h3 {
   color: #E89E1D;
 }
 
+#tldr:hover #tldr_title {
+  color: black !important;
+  transition: 1s;
+}
+
+#tldr_title {
+  transition: 1s;
+}
+
 .blue-text {
   color: #2B3D4F;
 }
