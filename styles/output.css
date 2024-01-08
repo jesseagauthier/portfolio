@@ -2031,6 +2031,11 @@ video {
   line-height: 2rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -2487,16 +2492,16 @@ p {
 main h3 {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #2B3D4F;
+  color: #2b3d4f;
   margin: 8px 0;
 }
 
 .orange-text {
-  color: #E89E1D;
+  color: #e89e1d;
 }
 
 .orange-bg {
-  background-color: #E89E1D;
+  background-color: #e89e1d;
   color: black;
 }
 
@@ -2511,7 +2516,7 @@ main h3 {
 }
 
 .hover-orange:hover {
-  color: #E89E1D;
+  color: #e89e1d;
 }
 
 #tldr:hover #tldr_title {
@@ -2524,16 +2529,16 @@ main h3 {
 }
 
 .blue-text {
-  color: #2B3D4F;
+  color: #2b3d4f;
 }
 
 .blue-bg {
   color: white;
-  background-color: #2B3D4F;
+  background-color: #2b3d4f;
 }
 
 .hover-blue-text:hover {
-  color: #2B3D4F;
+  color: #2b3d4f;
 }
 
 .heading-text {
@@ -2569,23 +2574,32 @@ main h3 {
   background-color: #2b3d4f;
 }
 
-.skip-links{
+.skip-links {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.skip-links a{
+.skip-links a {
   position: absolute;
   top: -3em;
   background-color: black;
-  color:white;
-  padding: .5em 1em;
+  color: white;
+  padding: 0.5em 1em;
   font-weight: bold;
 }
 
-.skip-links a:focus{
+.skip-links a:focus {
   top: 0;
+}
+
+.list-circle {
+  list-style-type: none;
+}
+
+.list-circle li::before {
+  content: '•';
+  color: red;
 }
 
 @media (min-width: 640px) {

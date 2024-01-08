@@ -111,7 +111,7 @@ function renderProjects(portfolioItems) {
 		projects.insertAdjacentHTML(
 			`beforeend`,
 			`
-            <div class="p-8 shrink md:basis-2/5 lightblue project text-white text-center lightgreen hover:scale-110 transition duration-700 hover:z-40">
+            <div class=" flex flex-col px-8 py-6 shrink md:basis-2/5 lightblue project text-white text-center lightgreen hover:scale-110 transition duration-700 hover:z-40">
                 <h4 class="capitalize text-medium text-2xl sub-heading-text mb-4">${
 									project.title
 								}</h4>
@@ -120,7 +120,7 @@ function renderProjects(portfolioItems) {
 								}" target="_blank" rel="noopener noreferrer"><img src="${
 									project.image
 								}"></a>
-                <ul class="flex justify-evenly mt-3 capitalize">
+                <ul class="flex justify-evenly capitalize mt-auto">
                     ${project.tags.map((tag) => `<li>${tag}</li>`).join('')}
                 </ul>
             </div>`
