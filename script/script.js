@@ -87,7 +87,7 @@ const portfolioItems = [
 		image: '/assets/fionawongphotography.png',
 		disc: 'Our purpose is to design an app that addresses the concerns surrounding variable garbage collection times in Ottawa, reducing the risk of missed pickups and the accumulation of garbage left out for extended periods. By providing certainty in collection schedules, it helps prevent the unhealthy environment caused by uncollected garbage and the potential for it to be blown around during inclement weather, benefiting both people and animals.',
 		link: 'https://dev-cms2-project.pantheonsite.io/',
-		tags: ['Hosting', 'PHP', 'Custom Wordpress Theme'],
+		tags: ['Hosting', 'PHP', 'Custom Theme'],
 	},
 ]
 
@@ -121,7 +121,12 @@ function renderProjects(portfolioItems) {
 									project.image
 								}"></a>
                 <ul class="flex justify-evenly capitalize mt-auto">
-                    ${project.tags.map((tag) => `<li>${tag}</li>`).join('')}
+                    ${project.tags
+											.map(
+												(tag) =>
+													`<li class="bg-orange-500 px-2 py-1 rounded text-black mt-2">${tag}</li>`
+											)
+											.join('')}
                 </ul>
             </div>`
 		)
