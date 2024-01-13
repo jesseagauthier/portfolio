@@ -33,22 +33,6 @@ const portfolioItems = [
 		tags: ['Custom Theme', 'Shopify', 'Design'],
 	},
 	{
-		title: 'interactive image gallery',
-		type: 'js',
-		image: './assets/imagegallery2.png',
-		disc: 'Step into our captivating interactive photography gallery, where stunning moments meet JavaScript artistry.',
-		link: 'https://jesseagauthier.github.io/Interactive-Gallery/',
-		tags: ['JavaScript', 'Loops', 'Tailwind CSS'],
-	},
-	{
-		title: 'Pokemon',
-		type: 'js',
-		image: './assets/pokemon2.png',
-		disc: 'Pokemon: Catch Em All App -Hunt & Collect 800+ creatures! Enjoy the thrilling adventure with stunning visuals, battles, and seamless API integration for a captivating experience.',
-		link: 'https://jesseagauthier.github.io/pokemon/',
-		tags: ['JavaScript', 'Local Storage', 'API'],
-	},
-	{
 		title: 'Real Adulting Home Page',
 		type: 'Web Development',
 		image: './assets/rd-home.png',
@@ -82,12 +66,12 @@ const portfolioItems = [
 		tags: ['ui', 'Figma', 'Mockup'],
 	},
 	{
-		title: 'Custom Wordpress Theme',
-		type: 'wordpress',
-		image: '/assets/fionawongphotography.png',
-		disc: 'Our purpose is to design an app that addresses the concerns surrounding variable garbage collection times in Ottawa, reducing the risk of missed pickups and the accumulation of garbage left out for extended periods. By providing certainty in collection schedules, it helps prevent the unhealthy environment caused by uncollected garbage and the potential for it to be blown around during inclement weather, benefiting both people and animals.',
-		link: 'https://dev-cms2-project.pantheonsite.io/',
-		tags: ['Hosting', 'PHP', 'Custom Theme'],
+		title: 'Werrv',
+		type: 'ui',
+		image: '/assets/werrv_homepage.png',
+		disc: '',
+		link: '',
+		tags: ['ui', 'Figma', 'Mockup'],
 	},
 ]
 
@@ -111,24 +95,10 @@ function renderProjects(portfolioItems) {
 		projects.insertAdjacentHTML(
 			`beforeend`,
 			`
-            <div class=" flex flex-col px-8 py-6 shrink md:basis-2/5 lightblue project text-white text-center lightgreen hover:scale-110 transition duration-700 hover:z-40">
-                <h4 class="capitalize text-medium text-2xl sub-heading-text mb-4">${
-									project.title
-								}</h4>
-                <a href="${
-									project.link
-								}" target="_blank" rel="noopener noreferrer"><img src="${
-									project.image
-								}"></a>
-                <ul class="flex justify-evenly capitalize mt-auto">
-                    ${project.tags
-											.map(
-												(tag) =>
-													`<li class="bg-orange-500 px-2 py-1 rounded text-black mt-2">${tag}</li>`
-											)
-											.join('')}
-                </ul>
-            </div>`
+            <div class="bg-white rounded p-1 border ">
+			<a href="${project.link}" target="_blank" rel="noopener noreferrer"><img src="${project.image}"></a>
+			
+			</div>`
 		)
 	}
 }
