@@ -75,8 +75,45 @@ const portfolioItems = [
 	},
 ]
 
-renderNavigation(navigationLinks)
-renderProjects(portfolioItems)
+const skills = [
+	{
+		name: 'javaScript',
+		image: '/assets/javascript.svg',
+	},
+	{
+		name: 'css',
+		image: '/assets/css-3.svg',
+	},
+	{
+		name: 'nodeJs',
+		image: '/assets/nodejs.svg',
+	},
+	{
+		name: 'react',
+		image: '/assets/react.svg',
+	},
+	{
+		name: 'php',
+		image: '/assets/php.svg',
+	},
+	{
+		name: 'wordpress',
+		image: '/assets/wordpress.svg',
+	},
+	{
+		name: 'shopify',
+		image: '/assets/shopify.svg',
+	},
+	{
+		name: 'Vue',
+		image: '/assets/vue.svg',
+	},
+	{
+		name: 'tailwind',
+		image: '/assets/tailwindcss.svg',
+	},
+]
+
 function renderNavigation(navigationLinks) {
 	const navigation = document.getElementById('navigation')
 	for (const link of navigationLinks) {
@@ -102,3 +139,18 @@ function renderProjects(portfolioItems) {
 		)
 	}
 }
+
+function renderSkills(skills) {
+	const skillsCtn = document.getElementById('skills_slides')
+
+	for (const skill of skills) {
+		const skillContent = `<li class="flex justify-center items-center" aria-label="Skill: ${skill.name}"><img src="${skill.image}" alt="${skill.name}"></li>`
+		skillsCtn.insertAdjacentHTML('beforeend', skillContent)
+	}
+
+	skillsCtn.classList.add(`md:grid-cols-${skills.length}`)
+}
+
+renderSkills(skills)
+renderNavigation(navigationLinks)
+renderProjects(portfolioItems)

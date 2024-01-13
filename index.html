@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://cdn.tailwindcss.com"></script>
-		<link rel="stylesheet" href="/styles/input.css" />
+		<link rel="stylesheet" href="/styles/output.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -15,10 +14,12 @@
 	</head>
 
 	<body>
+		<!-- Skill Links -->
 		<ul class="skip-links">
 			<li><a href="#nav">Skip to main nav</a></li>
 			<li><a href="#main">Skip to main content</a></li>
 		</ul>
+		<!-- Top Nav -->
 		<header class="inner-wrapper py-6" role="banner">
 			<nav class="md:flex md:justify-between flex-wrap" role="navigation">
 				<div id="brand" class="cursor-pointer">
@@ -39,9 +40,11 @@
 				></ul>
 			</nav>
 		</header>
+		<!-- Seeking -->
 		<div class="mb-10 p-8 text-center uppercase orange-bg" role="status">
 			<span class="text-3xl">seeking New opportunities</span>
 		</div>
+		<!-- Main content  -->
 		<main class="flex flex-col gap-6 inner-wrapper mt-10" role="main">
 			<!-- TLDR -->
 			<div id="about" class="flex flex-wrap md:flex-nowrap">
@@ -101,7 +104,7 @@
 			</div>
 			<!-- Education -->
 			<div id="row-2">
-				<h3>My Education</h3>
+				<h3>Education</h3>
 				<div>
 					<div class="p-8 blue-bg block text-center gold-bg-hover">
 						<h4 class="text-medium text-xl sub-heading-text">
@@ -112,9 +115,16 @@
 					</div>
 				</div>
 			</div>
+			<!-- Langs -->
+			<div>
+				<ul
+					class="grid lg:grid-rows-1 gap-5 grid-cols-3 md:grid-cols-9"
+					id="skills_slides"
+				></ul>
+			</div>
 			<!-- My Experience -->
 			<div id="row-3">
-				<h3>My Experience</h3>
+				<h3>Experience</h3>
 				<div class="md:flex gap-10">
 					<!-- The CountyCooperage -->
 					<div class="p-8 blue-bg gold-bg-hover mb-2 md:mb-0">
@@ -205,7 +215,7 @@
 			</div>
 			<!-- My Projects -->
 			<div id="row-5">
-				<h3>My Projects</h3>
+				<h3>Portfolio</h3>
 				<div id="projects" class="grid md:grid-cols-3 gap-5"></div>
 			</div>
 			<!-- Lets Chat -->
