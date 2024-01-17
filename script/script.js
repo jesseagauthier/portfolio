@@ -144,7 +144,7 @@ function renderSkills(skills) {
 	const skillsCtn = document.getElementById('skills_slides')
 
 	for (const skill of skills) {
-		const skillContent = `<li class="flex justify-center items-center" aria-label="Skill: ${skill.name}"><img src="${skill.image}" alt="${skill.name}"></li>`
+		const skillContent = `<li class="flex justify-center items-center" aria-label="Skill: ${skill.name}"><img class="w-1/2 md:w-1/2" src="${skill.image}" alt="${skill.name}"></li>`
 		skillsCtn.insertAdjacentHTML('beforeend', skillContent)
 	}
 
