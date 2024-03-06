@@ -1,4 +1,5 @@
 ;`use strict`
+
 const navigationLinks = [
 	{
 		name: 'about',
@@ -28,7 +29,7 @@ const portfolioItems = [
 		title: 'The County Cooperage',
 		type: 'Shopify',
 		image: '/assets/thecountycooperage.png',
-		disc: '',
+		disc: `The creation of a bespoke Shopify theme involved the skillful application of Liquid, Shopify's proprietary templated language, alongside JavaScript, CSS, and Tailwind.css. This approach ensured a highly customized, responsive, and visually appealing online store, tailored to meet specific business needs and enhance the user experience.`,
 		link: 'https://www.thecountycooperage.ca',
 		tags: ['Custom Theme', 'Shopify', 'Design'],
 	},
@@ -253,8 +254,44 @@ function rendersCertifications(certifications) {
 	certificationsContainer.innerHTML = `<h3>Certifications</h3><div class="md:flex gap-10 text-center">${template}</div>`
 }
 
+function projectsSlider(portfolio) {
+	const container = document.getElementById('projectsSlider')
+	container.innerHTML = '' // Clear existing content
+
+	portfolio.forEach((item, index) => {
+		// Adjust IDs for navigation
+		const slideId = `slide${index + 1}`
+		const prevSlideId =
+			index === 0 ? `slide${portfolio.length}` : `slide${index}`
+		const nextSlideId =
+			index === portfolio.length - 1 ? `slide1` : `slide${index + 2}`
+
+		// Create slide HTML
+		const slideHTML = `
+            <div id="${slideId}" class="carousel-item relative w-screen">
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#${prevSlideId}" class="btn btn-circle">❮</a>
+                    <a href="#${nextSlideId}" class="btn btn-circle">❯</a>
+                </div>
+                <div class="flex flex-row-reverse align-middle p-5 w-screen justify-start">
+					<div class="self-center px-5 text-center">
+						<h3 class="text-3xl">${item.title}</h3>
+						<p class="w-1/2  mx-auto mt-5">${item.disc}</p>
+						<a href="${item.link}" class="project lightblue-hover  mx-auto mt-4 inline-block text-white p-3 sub-heading-text orange-bg">Learn More</a>
+					</div>
+					<img src="${item.image}" alt="${item.title}" class="w-[500px]">
+				</div>
+            </div>
+        `
+
+		// Append the slide
+		container.insertAdjacentHTML('beforeend', slideHTML)
+	})
+}
+
 renderNavigation(navigationLinks)
 renderSkills(skills)
 rendersExperience(experiences)
 renderProjects(portfolioItems)
 rendersCertifications(certifications)
+projectsSlider(portfolioItems)
