@@ -147,6 +147,21 @@ const experiences = {
 	],
 }
 
+const certifications = [
+	{
+		title: 'Responsive Web Design',
+		organization: 'FreeCodeCamp',
+		year: '2022',
+		url: '',
+	},
+	{
+		title: 'JavaScript',
+		organization: 'HackerRank',
+		year: '2023',
+		url: 'https://www.hackerrank.com/certificates/4d1d4b06df95',
+	},
+]
+
 function renderNavigation(navigationLinks) {
 	const navigation = document.getElementById('navigation')
 	for (const link of navigationLinks) {
@@ -184,7 +199,7 @@ function renderSkills(skills) {
 	skillsCtn.classList.add(`md:grid-cols-${skills.length}`)
 }
 
-function renderExperience(experiences) {
+function rendersExperience(experiences) {
 	const experienceContainer = document.getElementById(experiences.id)
 
 	const template = []
@@ -210,8 +225,36 @@ function renderExperience(experiences) {
 
 	experienceContainer.insertAdjacentHTML('beforeend', template.join(''))
 }
+function rendersCertifications(certifications) {
+	const certificationsContainer = document.getElementById('row-4')
+
+	const template = certifications
+		.map(
+			(certification) => `
+        <div class="basis-1/2 p-8 blue-bg gold-bg-hover hover:text-black mb-2 md:mb-0">
+            ${
+							certification.url
+								? `<a rel="noopener" href="${certification.url}" target="_blank">`
+								: ''
+						}
+                <h4 class="text-medium text-xl sub-heading-text">${
+									certification.title
+								}</h4>
+                <p class="text-light sub-heading-text">${
+									certification.organization
+								}</p>
+                <p class="text-light sub-heading-text">${certification.year}</p>
+            ${certification.url ? '</a>' : ''}
+        </div>
+    `
+		)
+		.join('')
+
+	certificationsContainer.innerHTML = `<h3>Certifications</h3><div class="md:flex gap-10 text-center">${template}</div>`
+}
 
 renderNavigation(navigationLinks)
 renderSkills(skills)
-renderExperience(experiences)
+rendersExperience(experiences)
 renderProjects(portfolioItems)
+rendersCertifications(certifications)
