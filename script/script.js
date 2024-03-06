@@ -114,6 +114,39 @@ const skills = [
 	},
 ]
 
+const experiences = {
+	id: 'row-3-di',
+	title: 'Experience',
+	experiences: [
+		{
+			jobTitle: 'Junior Developer',
+			companyName: 'The County Cooperage',
+			period: '2023 - 2024',
+			responsibilities: [
+				'Collaborated with teams to integrate dynamic content using Liquid, HTML, CSS, and JavaScript.',
+				'Customized Shopify themes to ensure a cohesive online presence',
+				'Implemented responsive design for multi-device compatibility.',
+				'Estimated project scope and participated in design discussions and code',
+				'Stayed updated with design trends and web technologies.',
+				'Assisted with the maintenance and upkeep of front-end applications.',
+			],
+		},
+		{
+			jobTitle: 'Front End Developer',
+			companyName: 'JesseGauthier.dev',
+			period: '2021 - present',
+			responsibilities: [
+				'Developed highly responsive and scalable web applications for various industries and client environments',
+				'Attracted users to websites with professional, user-friendly designs and clean code.',
+				'Analyzed technical requirements to determine optimal solutions',
+				'Engaged with existing and prospective clients to foster new and repeat business',
+				'Devised social media plans to enhance digital marketing',
+				'Oversaw daily activities to facilitate smooth business operations',
+			],
+		},
+	],
+}
+
 function renderNavigation(navigationLinks) {
 	const navigation = document.getElementById('navigation')
 	for (const link of navigationLinks) {
@@ -151,6 +184,34 @@ function renderSkills(skills) {
 	skillsCtn.classList.add(`md:grid-cols-${skills.length}`)
 }
 
-renderSkills(skills)
+function renderExperience(experiences) {
+	const experienceContainer = document.getElementById(experiences.id)
+
+	const template = []
+
+	for (const experience of experiences.experiences) {
+		let responsibilitiesList = ''
+		for (const responsibility of experience.responsibilities) {
+			responsibilitiesList += `<li class="text">${responsibility}</li>`
+		}
+		template.push(
+			`<div class="p-8 blue-bg gold-bg-hover mb-2 md:mb-0">
+			<h4 class="text-medium text-xl sub-heading-text">
+				${experience.jobTitle}
+			</h4>
+			<p class="text-light sub-heading-text">${experience.companyName}</p>
+			<p class="text">${experience.period}</p>
+			<ul class="p-3 list-disc">
+				${responsibilitiesList}
+			</ul>
+		</div>`
+		)
+	}
+
+	experienceContainer.insertAdjacentHTML('beforeend', template.join(''))
+}
+
 renderNavigation(navigationLinks)
+renderSkills(skills)
+renderExperience(experiences)
 renderProjects(portfolioItems)
