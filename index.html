@@ -31,13 +31,14 @@
 
 			gtag('config', 'G-YLKLMN92XL')
 		</script>
-		<link rel="stylesheet" href="/styles/output.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Raleway:wght@100;300;400;500;600;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="/styles/output.css" />
 	</head>
 	<body>
+		<!-- Imports VUE - MUST BE BEFORE APP IS DEFINED -->
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<div id="app">
 			<!-- Skill Links -->
@@ -220,6 +221,7 @@
 							v-for="project in projects"
 							:key="project.title"
 							class="rounded overflow-hidden shadow-lg"
+							@click="selectProject(project)"
 						>
 							<img :src="project.image" :alt="project.title" class="w-full" />
 							<!-- <div class="px-6 py-4">
@@ -258,9 +260,12 @@
 					</div>
 				</section>
 			</main>
-			<div v-if="currentPage === 'portfolio'">
-				<p>Showing portfolio item: {{ currentPortfolioId }}</p>
-				<button @click="goToPage('home')">Back to Home</button>
+			<div v-if="currentPage === 'projectDetails'" class="project-details">
+				<h2>{{ selectedProject.title }}</h2>
+				<img :src="selectedProject.image" :alt="selectedProject.title" />
+				<p>{{ selectedProject.disc }}</p>
+				<!-- Add more details as needed -->
+				<button @click="currentPage = 'home'">Back to Projects</button>
 			</div>
 		</div>
 
@@ -270,7 +275,13 @@
 			createApp({
 				setup() {
 					const currentPage = ref('home')
-					const currentPortfolioId = ref(null)
+					const selectedProject = ref(null)
+
+					const selectProject = (project) => {
+						selectedProject.value = project
+						currentPage.value = 'projectDetails'
+					}
+
 					const navigationLinks = ref([
 						{ name: 'About', url: '#about' },
 						{ name: 'Projects', url: '#projects' },
@@ -400,7 +411,8 @@
 
 					return {
 						currentPage,
-						currentPortfolioId,
+						selectedProject,
+						selectProject,
 						navigationLinks,
 						education,
 						skills,
