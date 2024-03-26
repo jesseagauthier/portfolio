@@ -1,11 +1,27 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jesse Gauthier - Web Developer</title>
+		<link
+			href="https://assets.calendly.com/assets/external/widget.css"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://assets.calendly.com/assets/external/widget.js"
+			type="text/javascript"
+			async
+		></script>
+
 		<script
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-YLKLMN92XL"
 		></script>
-		<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Raleway:wght@100;300;400;500;600;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
 		<script>
 			window.dataLayer = window.dataLayer || []
 			function gtag() {
@@ -15,206 +31,387 @@
 
 			gtag('config', 'G-YLKLMN92XL')
 		</script>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/styles/output.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Raleway:wght@100;300;400;500;600;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
 			rel="stylesheet"
 		/>
-		<link
-			href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<title>Jesse Gauthier - Web Developer</title>
 	</head>
-
 	<body>
-		<!-- Skill Links -->
-		<ul class="skip-links">
-			<li><a href="#nav">Skip to main nav</a></li>
-			<li><a href="#main">Skip to main content</a></li>
-		</ul>
-		<!-- Top Nav -->
-		<header class="inner-wrapper py-6" role="banner">
-			<nav class="md:flex md:justify-between flex-wrap" role="navigation">
-				<div id="brand" class="cursor-pointer">
-					<h1
-						class="orange-text align-middle text-center text-4xl font-bold heading-text hover-blue-text"
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<div id="app">
+			<!-- Skill Links -->
+			<ul class="skip-links">
+				<li><a href="#nav">Skip to main nav</a></li>
+				<li><a href="#main">Skip to main content</a></li>
+			</ul>
+			<!-- Top Nav -->
+			<header class="inner-wrapper py-6" role="banner">
+				<nav class="md:flex md:justify-between flex-wrap" role="navigation">
+					<div id="brand" class="cursor-pointer">
+						<h1
+							class="orange-text align-middle text-center text-4xl font-bold heading-text hover-blue-text"
+						>
+							Jesse Gauthier
+						</h1>
+						<h2
+							class="blue-text align-middle text-center text-xl font-bold sub-heading-text hover-orange"
+						>
+							Front End Developer
+						</h2>
+					</div>
+					<ul
+						id="navigation"
+						class="flex capitalize items-center md:flex-wrap justify-center mt-3"
 					>
-						Jesse Gauthier
-					</h1>
-					<h2
-						class="blue-text align-middle text-center text-xl font-bold sub-heading-text hover-orange"
-					>
-						Front End Developer
-					</h2>
-				</div>
-				<ul
-					id="navigation"
-					class="flex capitalize items-center md:flex-wrap justify-center mt-3"
-				></ul>
-			</nav>
-		</header>
-		<!-- Seeking -->
-		<div class="mb-10 p-8 text-center capitalize orange-bg" role="status">
-			<p class="text-3xl">Seeking Full Time Positions</p>
-			<p class="text-2xl my-1">Immediate Availability</p>
-		</div>
-		<!-- Main content  -->
-		<main class="flex flex-col gap-6 inner-wrapper mt-10" role="main">
-			<!-- TLDR -->
-			<div id="about" class="flex flex-wrap md:flex-nowrap">
-				<div
-					id="tldr"
-					class="p-8 md:basis-2/3 lg:basis-2/5 blue-bg gold-bg-hover"
-				>
-					<h3
-						id="tldr_title"
-						class="underline text-2xl heading-text font-medium mb-3 text-white"
-					>
-						TLDR:
-					</h3>
-					<ul class="text list-circle">
-						<li class="my-1.5 flex">
-							<p>
-								Seeking Application development roles in growth-oriented,
-								mentorship-focused organization.
-							</p>
-						</li>
-						<li class="my-1.5 flex">
-							<p>
-								Pursuing a degree in Interactive Media at Algonquin College,
-								with an anticipated graduation date of March 2024, prepared to
-								bring current, industry-relevant skills to the table
-							</p>
-						</li>
-						<li class="my-1.5 flex">
-							<p>
-								Pioneered and executed a dynamic redevelopment of County
-								Cooperage's Shopify platform, orchestrating a comprehensive
-								strategy that propelled sales to soar by 320% in a mere three
-								months.
-							</p>
-						</li>
-						<li class="my-1.5 flex">
-							<p>
-								Crafted and implemented a bespoke Shopify theme tailored to meet
-								brand specifications, enhancing user experience and consistency
-								across the digital storefront
-							</p>
+						<li
+							v-for="link in navigationLinks"
+							:key="link.name"
+							class="mx-2 p-2 h-fit"
+						>
+							<a
+								:href="link.url"
+								class="sub-heading-text text-lg font-medium hover-orange"
+								>{{ link.name }}</a
+							>
 						</li>
 					</ul>
-				</div>
-				<div
-					id="intro"
-					class="p-3 md:p-8 md:basis-2/3 align-middle self-center"
-				>
-					<p class="text text-lg">
-						As a <span class="font-bold">Front-End Developer </span> with a
-						knack for creating engaging, high-quality websites, I blend
-						innovative design with functional technology to deliver seamless
-						user experiences. With a deep understanding of both the art and
-						science of web development, I specialize in bringing concepts to
-						life through HTML, CSS, JavaScript, and an array of modern
-						frameworks and technologies. My work, characterized by meticulous
-						attention to detail and a passion for digital craftsmanship, aims to
-						push boundaries and exceed expectations. Discover my world of
-						creative solutions and transformative web applications.
-					</p>
-				</div>
+				</nav>
+			</header>
+			<!-- Seeking -->
+			<div class="mb-10 p-8 text-center capitalize orange-bg" role="status">
+				<p class="text-3xl">Seeking Full Time Positions</p>
+				<p class="text-2xl my-1">Immediate Availability</p>
 			</div>
-			<!-- Education -->
-			<div id="row-2">
-				<h3>Education</h3>
-				<div
-					class="flex justify-evenly gap-3 md:gap-16 flex-wrap md:flex-nowrap"
-				>
-					<div
-						class="p-8 blue-bg block text-center gold-bg-hover w-[100%] md:basis-1/2"
-					>
-						<h4 class="text-medium text-xl sub-heading-text">
-							Interactive Media Design
-						</h4>
-						<p class="text-light sub-heading-text">Algonquin College</p>
-						<p class="text">2021-2024</p>
-					</div>
-					<div
-						class="p-8 blue-bg block text-center gold-bg-hover w-[100%] md:basis-1/2"
-					>
-						<h4 class="text-medium text-xl sub-heading-text">
-							Web Development and Internet Applications
-						</h4>
-						<p class="text-light sub-heading-text">Fanshawe College</p>
-						<p class="text">2024-2026</p>
-					</div>
-				</div>
-			</div>
-			<!-- Langs -->
-			<div>
-				<ul
-					class="grid lg:grid-rows-1 gap-5 grid-cols-3 md:grid-cols-9"
-					id="skills_slides"
-				></ul>
-			</div>
-			<!-- My Experience -->
-			<div id="row-3">
-				<h3>Experience</h3>
-				<div id="row-3-di" class="md:flex gap-10"></div>
-			</div>
-			<!-- Certifications -->
-			<div id="row-4"></div>
-			<!-- My Projects -->
-			<div id="row-5">
-				<h3>Portfolio</h3>
-				<div id="projects" class="grid md:grid-cols-3 gap-5"></div>
-			</div>
-			<!-- Lets Chat -->
-			<div id="contact">
-				<div
-					class="flex flex-col bluewood justify-center py-14 text-white text-center project"
-				>
-					<h4 class="text-medium text-5xl sub-heading-text">Let's Chat</h4>
-					<a
-						class="px-14 py-3 orange-bg inline w-[70%] md:w-1/6 mx-auto my-2 mt-5 sub-heading-text lightblue-hover project"
-						href="mailto:jessescarr@gmail.com"
-						>Email</a
-					>
-					<!-- Calendly link widget begin -->
-					<link
-						href="https://assets.calendly.com/assets/external/widget.css"
-						rel="stylesheet"
-					/>
-					<script
-						src="https://assets.calendly.com/assets/external/widget.js"
-						type="text/javascript"
-						async
-					></script>
-					<a
-						class="px-14 py-3 orange-bg inline w-[70%] md:w-1/6 mx-auto my-2 mt-5 sub-heading-text lightblue-hover project"
-						href=""
-						onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jessegauthier/30min?hide_event_type_details=1&hide_gdpr_banner=1'});return false;"
-						>Calendly Link</a
-					>
-					<!-- Calendly link widget end -->
-				</div>
-			</div>
-		</main>
-		<footer
-			class="lightblue py-24 text-white text-center mt-10"
-			role="contentinfo"
-		>
-			<a
-				class="inline-block text-2xl"
-				href="https://github.com/jesseagauthier/portfolio"
-				>Source Code</a
+			<!-- Main content -->
+			<main
+				v-if="currentPage === 'home'"
+				class="flex flex-col gap-6 inner-wrapper mt-10"
+				role="main"
 			>
-			<span class="block text-lg">© 2023 - Jesse Gauthier</span>
-		</footer>
-		<!-- <div id="projectsSlider" class="carousel w-full"></div> -->
-		<script type="module" src="/lib/script.js"></script>
+				<section id="about" class="flex flex-wrap md:flex-nowrap">
+					<div
+						id="tldr"
+						class="p-8 md:basis-2/3 lg:basis-2/5 blue-bg gold-bg-hover"
+					>
+						<h3
+							id="tldr_title"
+							class="underline text-2xl heading-text font-medium mb-3 text-white"
+						>
+							TLDR:
+						</h3>
+						<ul>
+							<li>
+								Seeking Application development roles in growth-oriented,
+								mentorship-focused organization.
+							</li>
+							<li>
+								Pursuing a degree in Interactive Media at Algonquin College,
+								anticipating graduation in March 2024.
+							</li>
+							<li>
+								Pioneered dynamic redevelopment of County Cooperage's Shopify
+								platform, boosting sales by 320% in three months.
+							</li>
+							<li>
+								Crafted bespoke Shopify theme for brand consistency and enhanced
+								user experience.
+							</li>
+						</ul>
+					</div>
+					<div
+						id="intro"
+						class="p-3 md:p-8 md:basis-2/3 align-middle self-center"
+					>
+						<p class="text-black w-[80%] mx-auto text-xl">
+							As a <span class="font-bold">Front-End Developer </span> with a
+							knack for creating engaging, high-quality websites, I blend
+							innovative design with functional technology to deliver seamless
+							user experiences. With a deep understanding of both the art and
+							science of web development, I specialize in bringing concepts to
+							life through HTML, CSS, JavaScript, and an array of modern
+							frameworks and technologies. My work, characterized by meticulous
+							attention to detail and a passion for digital craftsmanship, aims
+							to push boundaries and exceed expectations. Discover my world of
+							creative solutions and transformative web applications.
+						</p>
+					</div>
+				</section>
+				<section id="education" class="mt-10">
+					<h3 class="text-2xl font-bold mb-4">Education</h3>
+					<div
+						class="flex justify-evenly gap-3 md:gap-16 flex-wrap md:flex-nowrap"
+					>
+						<div
+							v-for="edu in education"
+							:key="edu.program"
+							class="p-8 blue-bg block text-center gold-bg-hover w-full md:basis-1/2"
+						>
+							<h4 class="text-medium text-xl">{{ edu.program }}</h4>
+							<p class="text-light">{{ edu.institution }}</p>
+							<p>{{ edu.years }}</p>
+						</div>
+					</div>
+				</section>
+				<section id="skills" class="mt-10">
+					<h3 class="text-2xl font-bold mb-4">Skills</h3>
+					<div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4">
+						<div
+							v-for="skill in skills"
+							:key="skill.name"
+							class="flex flex-col items-center"
+						>
+							<img :src="skill.image" :alt="skill.name" class="w-16 h-16" />
+							<p class="mt-2">{{ skill.name }}</p>
+						</div>
+					</div>
+				</section>
+				<section id="experience" class="mt-10">
+					<h3 class="text-2xl font-bold mb-4">Experience</h3>
+					<div class="flex gap-8 flex-wrap md:flex-nowrap">
+						<div
+							v-for="experience in experiences"
+							:key="experience.jobTitle"
+							class="mb-6 flex"
+						>
+							<div class="p-8 blue-bg text-center gold-bg-hover">
+								<h4 class="text-xl font-bold">
+									{{ experience.jobTitle }} @ {{ experience.companyName }}
+								</h4>
+								<p class="text">{{ experience.period }}</p>
+								<ul class="text-left mt-4">
+									<li
+										v-for="responsibility in experience.responsibilities"
+										:key="responsibility"
+										class="my-2"
+									>
+										{{ responsibility }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="certifications" class="mt-10">
+					<h3 class="text-2xl font-bold mb-4">Certifications</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+						<div
+							v-for="certification in certifications"
+							:key="certification.title"
+							class="p-8 blue-bg text-center gold-bg-hover w-100"
+						>
+							<h4 class="text-xl font-bold">{{ certification.title }}</h4>
+							<p>{{ certification.organization }}</p>
+							<p>{{ certification.year }}</p>
+							<a
+								v-if="certification.url"
+								:href="certification.url"
+								target="_blank"
+								class="text-blue-500 hover:underline"
+								>View Certification</a
+							>
+						</div>
+					</div>
+				</section>
+				<section id="projects" class="mt-10">
+					<h3 class="text-2xl font-bold mb-4">Projects</h3>
+					<div class="grid md:grid-cols-3 gap-5">
+						<div
+							v-for="project in projects"
+							:key="project.title"
+							class="rounded overflow-hidden shadow-lg"
+						>
+							<img :src="project.image" :alt="project.title" class="w-full" />
+							<!-- <div class="px-6 py-4">
+								<div class="font-bold text-xl mb-2">{{ project.title }}</div>
+								<p class="text-gray-700 text-base">{{ project.description }}</p>
+							</div>
+							<div class="px-6 pt-4 pb-2">
+								<a
+									:href="project.link"
+									target="_blank"
+									class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
+									>Learn More</a
+								>
+							</div> -->
+						</div>
+					</div>
+				</section>
+				<section id="contact" class="mt-10">
+					<div
+						class="flex flex-col justify-center py-14 text-center text-white bg-blue-500"
+					>
+						<h4 class="text-5xl mb-4">Let's Chat</h4>
+						<a
+							href="mailto:jessescarr@gmail.com"
+							class="px-6 py-3 bg-orange-500 inline-block w-auto mx-auto my-2 text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
+						>
+							Email
+						</a>
+						<a
+							href="#"
+							@click.prevent="openCalendly"
+							class="px-6 py-3 bg-orange-500 inline-block w-auto mx-auto my-2 text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
+						>
+							Calendly Link
+						</a>
+					</div>
+				</section>
+			</main>
+			<div v-if="currentPage === 'portfolio'">
+				<p>Showing portfolio item: {{ currentPortfolioId }}</p>
+				<button @click="goToPage('home')">Back to Home</button>
+			</div>
+		</div>
+
+		<script>
+			const { createApp, ref } = Vue
+
+			createApp({
+				setup() {
+					const currentPage = ref('home')
+					const currentPortfolioId = ref(null)
+					const navigationLinks = ref([
+						{ name: 'About', url: '#about' },
+						{ name: 'Projects', url: '#projects' },
+						{ name: 'Contact', url: '#contact' },
+						{ name: 'GitHub', url: 'https://github.com/jesseagauthier' },
+						{ name: 'CodePen', url: 'https://codepen.io/jessegauthier1994' },
+					])
+					const education = ref([
+						{
+							program: 'Interactive Media Design',
+							institution: 'Algonquin College',
+							years: '2021-2024',
+						},
+						{
+							program: 'Web Development and Internet Applications',
+							institution: 'Fanshawe College',
+							years: '2024-2026',
+						},
+					])
+					const skills = ref([
+						{ name: 'JavaScript', image: '/assets/javascript.svg' },
+						{ name: 'CSS', image: '/assets/css-3.svg' },
+						{ name: 'Vue.js', image: '/assets/vue.svg' },
+						{ name: 'Tailwind CSS', image: '/assets/tailwindcss.svg' },
+						{ name: 'Node.js', image: '/assets/nodejs.svg' },
+						{ name: 'PHP', image: '/assets/php.svg' },
+						{ name: 'WordPress', image: '/assets/wordpress.svg' },
+						{ name: 'Shopify', image: '/assets/shopify.svg' },
+					])
+					const experiences = ref([
+						{
+							jobTitle: 'Junior Developer',
+							companyName: 'The County Cooperage',
+							period: '2023 - Present',
+							responsibilities: [
+								'Collaborated with teams to integrate dynamic content using Liquid, HTML, CSS, and JavaScript.',
+								'Customized Shopify themes to ensure a cohesive online presence and enhanced user experience.',
+								'Implemented responsive design for multi-device compatibility.',
+							],
+						},
+						{
+							jobTitle: 'Front End Developer',
+							companyName: 'JesseGauthier.dev',
+							period: '2021 - Present',
+							responsibilities: [
+								'Developed highly responsive and scalable web applications for various industries and client environments.',
+								'Attracted users to websites with professional, user-friendly designs and clean code.',
+							],
+						},
+					])
+					const certifications = ref([
+						{
+							title: 'Responsive Web Design',
+							organization: 'FreeCodeCamp',
+							year: '2022',
+							url: 'https://www.freecodecamp.org/certification/fccid/responsive-web-design',
+						},
+						{
+							title: 'JavaScript Algorithms and Data Structures',
+							organization: 'HackerRank',
+							year: '2023',
+							url: 'https://www.hackerrank.com/certificates/4d1d4b06df95',
+						},
+					])
+					const projects = ref([
+						{
+							title: 'The County Cooperage',
+							type: 'Shopify',
+							image: '/assets/thecountycooperage.png',
+							disc: `The creation of a bespoke Shopify theme involved the skillful application of Liquid, Shopify's proprietary templated language, alongside JavaScript, CSS, and Tailwind.css. This approach ensured a highly customized, responsive, and visually appealing online store, tailored to meet specific business needs and enhance the user experience.`,
+							link: 'https://www.thecountycooperage.ca',
+							tags: ['Custom Theme', 'Shopify', 'Design'],
+						},
+						{
+							title: 'Real Adulting Home Page',
+							type: 'Web Development',
+							image: './assets/rd-home.png',
+							disc: 'Between student loan debts, work demands, feeling unsure if we should invest for retirement while the world is burning, the pressures of balancing identifying red flags with the fact that our eggs have a shelf life, let alone remembering to keep toilet paper stocked in our house—the responsibilities of adult life can often feel overwhelming, stressful, and chaotic. Making you feel like you’re just barely keeping it together as you go along. Did they even teach us how to be an adult in high school? Why are there so many blogs on how to budget? How do taxes even work?',
+							link: 'https://realadulting101.ca/',
+							tags: ['Php', 'WordPress', 'Custom Theme'],
+						},
+						{
+							title: 'Up Media Home Page',
+							type: 'ui',
+							image: './assets/upmedia.png',
+							disc: 'AWARD WINNING VANCOUVER VIDEO PRODUCTION COMPANY',
+							link: 'https://upmedia.video/',
+							tags: ['Php', 'WordPress', 'Elementor'],
+						},
+						{
+							title: 'W Flowers Contact Page',
+							type: 'ui',
+							image: '/assets/w-flowers.png',
+							disc: 'W Flowers is a local business in Ottawa that specializes in floral arrangements and bouquets for various occasions. We offer high quality and affordable European design options that are beautiful, elegant, and stylish. ',
+							link: 'https://www.figma.com/file/YlbPOHAJ74GZAgk56PK5p2/Portfolio-Pieces?type=design&node-id=112%3A26&mode=design&t=z1Xi3jZUZJz3Qoop-1',
+							tags: ['Figma', 'Mockup', 'Collaboration'],
+						},
+
+						{
+							title: 'Garbage Collection Ottawa',
+							type: 'ui',
+							image: '/assets/garbagecollectionottawa.png',
+							disc: 'Our purpose is to design an app that addresses the concerns surrounding variable garbage collection times in Ottawa, reducing the risk of missed pickups and the accumulation of garbage left out for extended periods. By providing certainty in collection schedules, it helps prevent the unhealthy environment caused by uncollected garbage and the potential for it to be blown around during inclement weather, benefiting both people and animals.',
+							link: 'https://www.figma.com/file/YlbPOHAJ74GZAgk56PK5p2/Portfolio-Pieces?type=design&node-id=101%3A26&mode=design&t=GomxTJao7DabgkWm-1',
+							tags: ['ui', 'Figma', 'Mockup'],
+						},
+						{
+							title: 'Werrv',
+							type: 'ui',
+							image: '/assets/werrv_homepage.png',
+							disc: '',
+							link: '',
+							tags: ['ui', 'Figma', 'Mockup'],
+						},
+					])
+
+					const goToPage = (page, portfolioId = null) => {
+						currentPage.value = page
+						currentPortfolioId.value = portfolioId
+					}
+
+					const openCalendly = () => {
+						Calendly.initPopupWidget({
+							url: 'https://calendly.com/jessegauthier/30min',
+						})
+					}
+
+					return {
+						currentPage,
+						currentPortfolioId,
+						navigationLinks,
+						education,
+						skills,
+						experiences,
+						certifications,
+						projects,
+						goToPage,
+						openCalendly,
+					}
+				},
+			}).mount('#app')
+		</script>
 	</body>
 </html>
