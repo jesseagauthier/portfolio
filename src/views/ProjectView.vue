@@ -1,97 +1,88 @@
-<script>
-import { ref, onMounted } from 'vue'
+<script setup>
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '../data/projects.js'
 
-export default {
-  setup() {
-    const route = useRoute()
-    const selectedProject = ref(null)
-    const isLoading = ref(true)
+const route = useRoute()
+const selectedProject = ref('null')
 
-    const fetchProjectData = () => {
-      const projectId = Number(route.params.id)
-      return projects.find((project) => project.id === projectId)
-    }
-
-    selectedProject.value = fetchProjectData()
-    onMounted(async () => {
-      try {
-        console.log(route.params.id)
-        document.body.scrollTop = document.documentElement.scrollTop = 0
-      } catch (error) {
-        console.error('Failed to fetch project data:', error)
-      } finally {
-        isLoading.value = false
-      }
-    })
-
-    return { selectedProject, isLoading }
+function fetchProjectData() {
+  const projectId = Number(route.params.id)
+  const project = projects.find((project) => project.id === projectId)
+  if (project) {
+    return project
+  } else {
+    console.error('Project not found')
   }
 }
+
+selectedProject.value = fetchProjectData()
+
+document.body.scrollTop = document.documentElement.scrollTop = 0
 </script>
 
 <template>
-  <!-- Projects View -->
-  <div class="project-details min-h-screen inner-wrapper" role="main">
-    <!-- Project Section -->
-    <div class="flex flex-col">
-      <h2 class="align-middle text-center text-4xl font-bold heading-text my-5">
-        {{ selectedProject.title }}
-      </h2>
-
-      <a
-        class="orange-bg mx-auto p-3 mt-5 rounded-md gold-bg-hover"
-        :href="selectedProject.link"
-        target="_blank"
-        rel="noopener noreferrer"
-        :aria-label="'Learn more about ' + selectedProject.title"
-      >
-        Project Link
-      </a>
-      <div
-        class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9"
-        role="complementary"
-      >
-        <img
-          class="w-[100%] md:w-[100%] md:min-w-[550px] md:h-[350px] rounded-xl my-3 md:my-0"
-          :src="selectedProject.primaryImage"
-          :alt="selectedProject.title"
-        />
-        <div class="self-center flex flex-col justify-center">
-          <p class="md:w-[80%] w-[90%] mx-auto text-xl">
-            {{ selectedProject.shortBio }}
-          </p>
+  <div class="min-h-screen flex">
+    <!-- Projects View -->
+    <div class="project-details" role="main">
+      <!-- Project Section -->
+      <div class="flex flex-col">
+        <h2 class="align-middle text-center text-4xl font-bold heading-text my-5">
+          {{ selectedProject.title }}
+        </h2>
+        <a
+          class="orange-bg mx-auto p-3 mt-5 rounded-md gold-bg-hover"
+          :href="selectedProject.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="'Learn more about ' + selectedProject.title"
+        >
+          Project Link
+        </a>
+        <div
+          class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9"
+          role="complementary"
+        >
+          <img
+            class="w-[100%] md:w-[100%] md:min-w-[550px] md:h-[350px] rounded-xl my-3 md:my-0"
+            :src="selectedProject.primaryImage"
+            :alt="selectedProject.title"
+          />
+          <div class="self-center flex flex-col justify-center">
+            <p class="md:w-[80%] w-[90%] mx-auto text-xl">
+              {{ selectedProject.shortBio }}
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="hidden md:block mt-10" aria-labelledby="moreInformationHeading">
-        <h3 id="moreInformationHeading" class="my-3 text-2xl font-bold text-center">
-          More Information
-        </h3>
-        <div id="secondaryContent" class="grid grid-cols-2 space-x-3">
-          <div class="grid md:grid-cols-2 gap-3">
-            <div
-              class="flex flex-col space-y-2"
-              v-for="image in selectedProject.images"
-              :key="image.id"
-            >
-              <h4 class="text-center font-medium">{{ image.title }}</h4>
-              <img
-                class="w-full object-cover"
-                :src="image.src"
-                :alt="'Image of ' + image.title"
+        <div class="hidden md:block mt-10" aria-labelledby="moreInformationHeading">
+          <h3 id="moreInformationHeading" class="my-3 text-2xl font-bold text-center">
+            More Information
+          </h3>
+          <div id="secondaryContent" class="grid grid-cols-2 space-x-3">
+            <div class="grid md:grid-cols-2 gap-3">
+              <div
+                class="flex flex-col space-y-2"
+                v-for="image in selectedProject.images"
                 :key="image.id"
-              />
+              >
+                <h4 class="text-center font-medium">{{ image.title }}</h4>
+                <img
+                  class="w-full object-cover"
+                  :src="image.src"
+                  :alt="'Image of ' + image.title"
+                  :key="image.id"
+                />
+              </div>
+            </div>
+            <div class="p-3">
+              <p class="text-lg">{{ selectedProject.longBio }}</p>
             </div>
           </div>
-          <div class="p-3">
-            <p class="text-lg">{{ selectedProject.longBio }}</p>
-          </div>
         </div>
       </div>
+      <p class="text-md md:hidden text-center mt-5" role="alert">
+        For best viewing, please visit this page on a larger device.
+      </p>
     </div>
-    <p class="text-md md:hidden text-center mt-5" role="alert">
-      For best viewing, please visit this page on a larger device.
-    </p>
   </div>
 </template>
