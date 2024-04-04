@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { skills } from '../data/skills.js'
 import { projects } from '../data/projects.js'
 import { certifications } from '../data/certifications.js'
@@ -48,9 +47,10 @@ import { experiences } from '../data/experiences.js'
           </p>
         </div>
       </section>
+      <!-- Education Section -->
       <section id="education" class="mt-10">
         <h3 class="text-2xl font-bold mb-4">Education</h3>
-        <div class="flex justify-evenly gap-3 md:gap-16 flex-wrap md:flex-nowrap">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div
             v-for="edu in education"
             :key="edu.program"
@@ -78,7 +78,7 @@ import { experiences } from '../data/experiences.js'
       <!-- Experience Section  -->
       <section id="experience" class="mt-10">
         <h3 class="text-2xl font-bold mb-4">Experience</h3>
-        <div class="flex gap-8 flex-wrap md:flex-nowrap">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div v-for="experience in experiences" :key="experience.jobTitle" class="mb-6 flex">
             <div class="p-8 blue-bg text-center gold-bg-hover">
               <h4 class="text-xl font-bold">
@@ -102,13 +102,6 @@ import { experiences } from '../data/experiences.js'
             <h4 class="text-xl font-bold">{{ certification.title }}</h4>
             <p>{{ certification.organization }}</p>
             <p>{{ certification.year }}</p>
-            <a
-              v-if="certification.url"
-              :href="certification.url"
-              target="_blank"
-              class="text-blue-500 hover:underline"
-              >View Certification</a
-            >
           </div>
         </div>
       </section>
@@ -136,24 +129,5 @@ import { experiences } from '../data/experiences.js'
         </div>
       </section>
     </div>
-    <!-- Contact Section -->
-    <section id="contact" class="mt-10">
-      <div class="flex flex-col justify-center py-14 text-center text-white bg-blue-500">
-        <h4 class="text-5xl mb-4">Let's Chat</h4>
-        <a
-          href="mailto:jessescarr@gmail.com"
-          class="px-6 py-3 bg-orange-500 inline-block w-auto mx-auto my-2 text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
-        >
-          Email
-        </a>
-        <a
-          href="#"
-          @click.prevent="openCalendly"
-          class="px-6 py-3 bg-orange-500 inline-block w-auto mx-auto my-2 text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
-        >
-          Calendly Link
-        </a>
-      </div>
-    </section>
   </main>
 </template>

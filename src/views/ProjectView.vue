@@ -36,9 +36,6 @@ export default {
   <div class="project-details min-h-screen inner-wrapper">
     <!-- Project Section -->
     <div class="flex flex-col">
-      <h3 class="text-xl md:hidden text-center">
-        For best viewing please visit this page on a larger device
-      </h3>
       <h2 class="align-middle text-center text-4xl font-bold heading-text my-5">
         {{ selectedProject.title }}
       </h2>
@@ -52,7 +49,7 @@ export default {
       </a>
       <div class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9">
         <img
-          class="w-[100%] md:w-[100%] min-w-[550px] h-[350px] rounded-xl my-3 md:my-0"
+          class="w-[100%] md:w-[100%] md:min-w-[550px] md:h-[350px] rounded-xl my-3 md:my-0"
           :src="selectedProject.primaryImage"
           :alt="selectedProject.title"
         />
@@ -86,26 +83,8 @@ export default {
         </div>
       </div>
     </div>
+    <p class="text-md md:hidden text-center mt-5">
+      For best viewing please visit this page on a larger device
+    </p>
   </div>
-  <!-- Contact Section -->
-  <section id="contact" class="mt-10">
-    <div class="flex flex-col justify-center py-14 text-center text-white bg-blue-500">
-      <h4 class="text-5xl mb-6 text-center">Let's Chat</h4>
-      <div class="flex justify-center space-x-3 mt-6 mx-auto">
-        <a
-          href="mailto:jessescarr@gmail.com"
-          class="px-6 py-3 bg-orange-500 inline-block w-auto text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
-        >
-          Email
-        </a>
-        <a
-          href="#"
-          @click.prevent="openCalendly"
-          class="px-6 py-3 bg-orange-500 inline-block w-auto text-lg rounded hover:bg-orange-600 transition-colors duration-300 ease-in-out"
-        >
-          Calendly Link
-        </a>
-      </div>
-    </div>
-  </section>
 </template>

@@ -2,6 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 
+import footerComp from './components/FooterComp.vue'
+
 const navigationLinks = ref([
   { name: 'About', url: '#about' },
   { name: 'Projects', url: '#projects' },
@@ -41,7 +43,8 @@ const navigationLinks = ref([
       </ul>
     </nav>
   </header>
-  <RouterView />
+  <RouterView class="inner-wrapper" />
+  <footerComp />
 </template>
 
 <style scoped></style>

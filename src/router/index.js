@@ -14,6 +14,10 @@ const router = createRouter({
       path: '/projects/:id',
       name: 'ProjectView',
       component: ProjectView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: { name: 'home' }
     }
   ]
 })
