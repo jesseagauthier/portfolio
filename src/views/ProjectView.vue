@@ -33,7 +33,7 @@ export default {
 
 <template>
   <!-- Projects View -->
-  <div class="project-details min-h-screen inner-wrapper">
+  <div class="project-details min-h-screen inner-wrapper" role="main">
     <!-- Project Section -->
     <div class="flex flex-col">
       <h2 class="align-middle text-center text-4xl font-bold heading-text my-5">
@@ -44,10 +44,15 @@ export default {
         class="orange-bg mx-auto p-3 mt-5 rounded-md gold-bg-hover"
         :href="selectedProject.link"
         target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="'Learn more about ' + selectedProject.title"
       >
         Project Link
       </a>
-      <div class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9">
+      <div
+        class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9"
+        role="complementary"
+      >
         <img
           class="w-[100%] md:w-[100%] md:min-w-[550px] md:h-[350px] rounded-xl my-3 md:my-0"
           :src="selectedProject.primaryImage"
@@ -59,21 +64,23 @@ export default {
           </p>
         </div>
       </div>
-      <div class="hidden md:block mt-10">
-        <h3 class="my-3 text-2xl font-bold text-center">More Information</h3>
+      <div class="hidden md:block mt-10" aria-labelledby="moreInformationHeading">
+        <h3 id="moreInformationHeading" class="my-3 text-2xl font-bold text-center">
+          More Information
+        </h3>
         <div id="secondaryContent" class="grid grid-cols-2 space-x-3">
           <div class="grid md:grid-cols-2 gap-3">
             <div
               class="flex flex-col space-y-2"
               v-for="image in selectedProject.images"
-              :key="selectedProject.id"
+              :key="image.id"
             >
               <h4 class="text-center font-medium">{{ image.title }}</h4>
               <img
                 class="w-full object-cover"
                 :src="image.src"
-                :alt="'Image ' + image.title"
-                :key="image"
+                :alt="'Image of ' + image.title"
+                :key="image.id"
               />
             </div>
           </div>
@@ -83,8 +90,8 @@ export default {
         </div>
       </div>
     </div>
-    <p class="text-md md:hidden text-center mt-5">
-      For best viewing please visit this page on a larger device
+    <p class="text-md md:hidden text-center mt-5" role="alert">
+      For best viewing, please visit this page on a larger device.
     </p>
   </div>
 </template>

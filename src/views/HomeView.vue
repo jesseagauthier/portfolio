@@ -7,15 +7,15 @@ import { experiences } from '../data/experiences.js'
 </script>
 
 <template>
-  <main class="flex flex-col gap-6 mt-10" role="main">
-    <div class="inner-wrapper">
+  <main class="flex flex-col gap-6 mt-10">
+    <div>
       <!-- About Section -->
-      <section id="about" class="flex flex-wrap md:flex-nowrap">
+      <section id="about" class="flex flex-wrap md:flex-nowrap" aria-labelledby="tldr_title">
         <div id="tldr" class="p-8 md:basis-2/3 lg:basis-2/5 blue-bg gold-bg-hover">
-          <h3 id="tldr_title" class="underline text-2xl heading-text font-medium mb-3 text-white">
+          <h2 id="tldr_title" class="underline text-2xl heading-text font-medium mb-3 text-white">
             TLDR:
-          </h3>
-          <ul>
+          </h2>
+          <ul aria-label="Quick summary">
             <li>
               Seeking Web development roles in growth-oriented, mentorship-focused organization.
             </li>
@@ -48,23 +48,23 @@ import { experiences } from '../data/experiences.js'
         </div>
       </section>
       <!-- Education Section -->
-      <section id="education" class="mt-10">
-        <h3 class="text-2xl font-bold mb-4">Education</h3>
+      <section id="education" class="mt-10" aria-labelledby="education_heading">
+        <h2 id="education_heading" class="text-2xl font-bold mb-4">Education</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          <div
+          <article
             v-for="edu in education"
             :key="edu.program"
             class="p-8 blue-bg block text-center gold-bg-hover w-full md:basis-1/2"
           >
-            <h4 class="text-medium text-xl">{{ edu.program }}</h4>
-            <p class="text-light">{{ edu.institution }}</p>
+            <h3 class="text-medium text-xl">{{ edu.program }}</h3>
+            <p>{{ edu.institution }}</p>
             <p>{{ edu.years }}</p>
-          </div>
+          </article>
         </div>
       </section>
       <!-- Skills Section -->
-      <section id="skills" class="mt-10">
-        <h3 class="text-2xl font-bold mb-4">Skills</h3>
+      <section id="skills" class="mt-10" aria-labelledby="skills_heading">
+        <h2 id="skills_heading" class="text-2xl font-bold mb-4">Skills</h2>
         <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-8">
           <img
             v-for="skill in skills"
@@ -75,45 +75,48 @@ import { experiences } from '../data/experiences.js'
           />
         </div>
       </section>
-      <!-- Experience Section  -->
-      <section id="experience" class="mt-10">
-        <h3 class="text-2xl font-bold mb-4">Experience</h3>
+      <!-- Experience Section -->
+      <section id="experience" class="mt-10" aria-labelledby="experience_heading">
+        <h2 id="experience_heading" class="text-2xl font-bold mb-4">Experience</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          <div v-for="experience in experiences" :key="experience.jobTitle" class="mb-6 flex">
+          <article v-for="experience in experiences" :key="experience.jobTitle" class="mb-6 flex">
             <div class="p-8 blue-bg text-center gold-bg-hover">
-              <h4 class="text-xl font-bold">
+              <h3 class="text-xl font-bold">
                 {{ experience.jobTitle }} @ {{ experience.companyName }}
-              </h4>
-              <p class="text">{{ experience.period }}</p>
+              </h3>
+              <p>{{ experience.period }}</p>
               <p class="text-left my-2">{{ experience.disc }}</p>
             </div>
-          </div>
+          </article>
         </div>
       </section>
       <!-- Certifications -->
-      <section id="certifications" class="mt-10">
-        <h3 class="text-2xl font-bold mb-4">Certifications</h3>
+      <section id="certifications" class="mt-10" aria-labelledby="certifications_heading">
+        <h2 id="certifications_heading" class="text-2xl font-bold mb-4">Certifications</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          <div
+          <article
             v-for="certification in certifications"
             :key="certification.title"
             class="p-8 blue-bg text-center gold-bg-hover w-100"
           >
-            <h4 class="text-xl font-bold">{{ certification.title }}</h4>
+            <h3 class="text-xl font-bold">{{ certification.title }}</h3>
             <p>{{ certification.organization }}</p>
             <p>{{ certification.year }}</p>
-          </div>
+          </article>
         </div>
       </section>
       <!-- Project Section -->
-      <section id="projects" class="mt-10">
-        <h3 class="text-2xl font-bold mb-4">Projects (Click Project Image for More Information)</h3>
+      <section id="projects" class="mt-10" aria-labelledby="projects_heading">
+        <h2 id="projects_heading" class="text-2xl font-bold mb-4">
+          Projects (Click Project Image for More Information)
+        </h2>
         <div class="grid md:grid-cols-3 gap-5">
           <router-link
             v-for="project in projects"
             :key="project.id"
             :to="`/projects/${project.id}`"
             class="group rounded overflow-hidden flex flex-col"
+            aria-label="View project details"
           >
             <div class="relative w-full">
               <img :src="project.primaryImage" :alt="project.title" class="w-full shadow-lg" />
