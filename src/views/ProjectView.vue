@@ -1,28 +1,34 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '../data/projects.js'
+import ProjectSideBar from '../components/ProjectSideBar.vue'
 
 const route = useRoute()
-const selectedProject = ref('null')
+const selectedProject = ref(null)
 
-function fetchProjectData() {
-  const projectId = Number(route.params.id)
-  const project = projects.find((project) => project.id === projectId)
+function fetchProjectData(projectId) {
+  const project = projects.find((project) => project.id === Number(projectId))
   if (project) {
-    return project
+    selectedProject.value = project
   } else {
     console.error('Project not found')
   }
 }
 
-selectedProject.value = fetchProjectData()
+fetchProjectData(route.params.id)
 
-document.body.scrollTop = document.documentElement.scrollTop = 0
+watch(
+  () => route.params.id,
+  (newId) => {
+    fetchProjectData(newId)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+  }
+)
 </script>
 
 <template>
-  <div class="min-h-screen flex">
+  <div class="min-h-screen">
     <!-- Projects View -->
     <div class="project-details" role="main">
       <!-- Project Section -->
@@ -30,52 +36,53 @@ document.body.scrollTop = document.documentElement.scrollTop = 0
         <h2 class="align-middle text-center text-4xl font-bold heading-text my-5">
           {{ selectedProject.title }}
         </h2>
-        <a
-          class="orange-bg mx-auto p-3 mt-5 rounded-md gold-bg-hover"
-          :href="selectedProject.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          :aria-label="'Learn more about ' + selectedProject.title"
-        >
-          Project Link
-        </a>
-        <div
-          class="flex flex-wrap md:flex-nowrap align-middle justify-evenly mt-9"
-          role="complementary"
-        >
-          <img
-            class="w-[100%] md:w-[100%] md:min-w-[550px] md:h-[350px] rounded-xl my-3 md:my-0"
-            :src="selectedProject.primaryImage"
-            :alt="selectedProject.title"
-          />
-          <div class="self-center flex flex-col justify-center">
-            <p class="md:w-[80%] w-[90%] mx-auto text-xl">
-              {{ selectedProject.shortBio }}
-            </p>
+        <div class="flex flex-wrap md:flex-nowrap justify-center">
+          <img class="w-1/2 h-[100%]" :src="selectedProject.primaryImage" />
+          <div class="self-center p-5 w-2/3">
+            <p>{{ selectedProject.shortBio }}</p>
+            <a
+              class="block w-fit orange-bg mx-auto p-3 mt-5 rounded-md gold-bg-hover"
+              :href="selectedProject.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="'Learn more about ' + selectedProject.title"
+            >
+              Project Link
+            </a>
           </div>
         </div>
+
+        <!-- More Information Section -->
         <div class="hidden md:block mt-10" aria-labelledby="moreInformationHeading">
           <h3 id="moreInformationHeading" class="my-3 text-2xl font-bold text-center">
             More Information
           </h3>
-          <div id="secondaryContent" class="grid grid-cols-2 space-x-3">
-            <div class="grid md:grid-cols-2 gap-3">
-              <div
-                class="flex flex-col space-y-2"
-                v-for="image in selectedProject.images"
-                :key="image.id"
-              >
-                <h4 class="text-center font-medium">{{ image.title }}</h4>
-                <img
-                  class="w-full object-cover"
-                  :src="image.src"
-                  :alt="'Image of ' + image.title"
+          <div class="flex justify-center">
+            <div class="w-[50%] my-2">
+              <swiper-container class="my-thumbs my-4" :slides-per-view="4">
+                <swiper-slide
+                  class="cursor-pointer mx-2"
+                  v-for="image in selectedProject.images"
                   :key="image.id"
-                />
-              </div>
+                >
+                  <img :src="image.src" :alt="'Image of ' + image.title" class="" />
+                </swiper-slide>
+              </swiper-container>
+              <swiper-container
+                :slides-per-view="1"
+                :space-between="spaceBetween"
+                :centered-slides="true"
+                navigation="true"
+                loop="true"
+                thumbs-swiper=".my-thumbs"
+              >
+                <swiper-slide v-for="image in selectedProject.images" :key="image.id">
+                  <img :src="image.src" :alt="'Image of ' + image.title" />
+                </swiper-slide>
+              </swiper-container>
             </div>
-            <div class="p-3">
-              <p class="text-lg">{{ selectedProject.longBio }}</p>
+            <div id="secondaryContent" class="">
+              <p class="text-lg p-5 w-[80%] text-justify">{{ selectedProject.longBio }}</p>
             </div>
           </div>
         </div>
@@ -84,5 +91,23 @@ document.body.scrollTop = document.documentElement.scrollTop = 0
         For best viewing, please visit this page on a larger device.
       </p>
     </div>
+    <ProjectSideBar class="hidden lg:block" :projects="projects" />
   </div>
 </template>
+
+<style>
+img {
+  border-radius: 8px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
