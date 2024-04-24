@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
+import FreelanceLandingView from '../views/FreelanceLandingView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       redirect: { name: 'home' }
+    },
+    {
+      path: '/workwithjesse',
+      name: 'Freelance',
+      component: FreelanceLandingView
     }
   ]
 })

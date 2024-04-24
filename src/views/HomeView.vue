@@ -1,4 +1,5 @@
 <script setup>
+// Import data from your project structure
 import { skills } from '../data/skills.js'
 import { projects } from '../data/projects.js'
 import { certifications } from '../data/certifications.js'
@@ -33,7 +34,7 @@ import { experiences } from '../data/experiences.js'
           </ul>
         </div>
         <div id="intro" class="p-3 md:p-8 md:basis-2/3 align-middle self-center">
-          <p class="text-black md:w-[80%] mx-auto text-xl">
+          <p class="text-black md:w-[80%] mx-auto text-xl text-justify">
             Technically minded professional with diverse experience in full-stack development,
             specializing in front-end technologies, such as HTML, CSS, and JavaScript, as well as
             back-end frameworks like Node.js and Express.js. Well-versed in developing responsive
@@ -106,7 +107,7 @@ import { experiences } from '../data/experiences.js'
         </div>
       </section>
       <!-- Project Section -->
-      <section id="projects" class="mt-10" aria-labelledby="projects_heading">
+      <section id="projects" class="my-10" aria-labelledby="projects_heading">
         <h2 id="projects_heading" class="text-2xl font-bold mb-4">
           Projects (Click Project Image for More Information)
         </h2>

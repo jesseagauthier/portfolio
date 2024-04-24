@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" aria-labelledby="contact-heading" class="mt-10">
+  <section id="contact" aria-labelledby="contact-heading" class="">
     <div class="flex flex-col justify-center py-14 text-center text-white bg-blue-500">
       <h2 id="contact-heading" class="text-5xl mb-4">Let's Chat</h2>
       <a

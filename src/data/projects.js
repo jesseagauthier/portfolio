@@ -87,7 +87,7 @@ export const projects = [
     id: 4
   },
   {
-    title: 'W Flowers Contact Page',
+    title: 'W Flowers',
     type: 'Figma',
     primaryImage: '/assets/projects/w_flowers/w-flowers.png',
     shortBio:
