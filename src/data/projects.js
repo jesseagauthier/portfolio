@@ -123,7 +123,7 @@ export const projects = [
     primaryImage: '/assets/projects/seuss/seuss.jpg',
     shortBio: `In the "Seuss Treasury" project, I embraced the challenge of crafting a web application dedicated to the whimsical world of Dr. Seuss, utilizing a modern web development stack comprising React, Vite, React Router, and the Fetch API, in conjunction with the Seussology API. The essence of this project was to create an engaging, interactive platform where users could explore the rich tapestry of Dr. Seuss's books, delve into detailed information about each book, and be inspired by a collection of memorable quotes.`,
     longBio: `The Seuss Treasury project was not just a tribute to the beloved author but also an exploration in creating an interactive literary experience. Through careful curation and design, users are invited into the imaginative world of Dr. Seuss. The application features book recommendations based on user preferences, interactive quizzes, and a 'create your own Seuss story' section, encouraging creative engagement with the content. The use of React and Vite ensured a smooth and responsive user experience, while the Fetch API integration with the Seussology API allowed for dynamic content updates, making the world of Dr. Seuss accessible to fans old and new.`,
-    link: 'https://dev-gottago.pantheonsite.io/',
+    link: 'https://seusstreasury.jessegauthier.dev/',
     tags: ['API', 'React', 'Web Development'],
     id: 7
   },
