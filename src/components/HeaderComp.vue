@@ -66,9 +66,8 @@ import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
 const navigationLinks = ref([
-  { name: 'About', url: '#about' },
-  { name: 'Projects', url: '#projects' },
-  { name: 'Contact', url: '#contact' },
+  { name: 'Home', url: '/' },
+  { name: 'Projects', url: '/projects' },
   { name: 'GitHub', url: 'https://github.com/jesseagauthier' },
   { name: 'CodePen', url: 'https://codepen.io/jessegauthier1994' },
   {

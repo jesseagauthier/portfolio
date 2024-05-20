@@ -1,43 +1,39 @@
 export const projects = [
-  {
-    title: 'Recipe Saver',
-    type: 'Vue & Node.js',
-    primaryImage: '/assets/projects/recipe_saver/recipe_saver_card.svg',
-    images: [
-      {
-        src: '/assets/projects/recipe_saver/recipe_saver_mealplan.svg',
-        title: 'Meal Planner'
-      },
-      {
-        src: '/assets/projects/recipe_saver/recipe_saver_card.svg',
-        title: 'Recipe Card'
-      },
-      {
-        src: '/assets/projects/recipe_saver/recipe_saver_recipe.svg',
-        title: 'Full Recipe'
-      }
-    ],
-    shortBio: `The Recipe Saver application offers a convenient and user-friendly platform for storing, organizing, and accessing a wide range of recipes. Ideal for anyone from cooking novices to seasoned chefs, the app provides features like advanced search filters, a shopping list converter, and cloud-based storage, making meal planning and preparation simpler and more enjoyable. With the ability to manage recipes from various sources in one place, users can save time and effort, focusing on what they love most: cooking and experimenting with new dishes.`,
-    longBio: `The Recipe Saver application is a revolutionary tool designed for culinary enthusiasts and home cooks seeking an organized, efficient way to store and manage their favorite recipes. With an intuitive user interface, users can easily upload, categorize, and store recipes from various sources, making it simple to access them anytime, anywhere. The app offers a range of features including advanced search options to filter recipes by ingredients, cooking time, or dietary preferences, ensuring users can quickly find the perfect recipe for any occasion. Additionally, the application integrates a shopping list feature, allowing users to seamlessly convert recipe ingredients into a shopping list, thereby streamlining the meal preparation process. With cloud-based storage, users can rest assured that their recipes are safe and accessible across multiple devices. The Recipe Saver application is more than just a digital cookbook; it's a companion for anyone passionate about cooking and looking for a hassle-free way to explore, save, and organize their culinary repertoire.`,
-    link: 'https://app.jessegauthier.dev/',
-    tags: ['API', 'Vue', 'Web Development'],
-    id: 1
-  },
+  // {
+  //   title: 'Recipe Saver',
+  //   type: 'Vue & Node.js',
+  //   primaryImage: '/assets/projects/recipe_saver/recipe_saver_card.svg',
+  //   images: [
+  //     {
+  //       src: '/assets/projects/recipe_saver/recipe_saver_mealplan.svg',
+  //       title: 'Meal Planner'
+  //     },
+  //     {
+  //       src: '/assets/projects/recipe_saver/recipe_saver_card.svg',
+  //       title: 'Recipe Card'
+  //     },
+  //     {
+  //       src: '/assets/projects/recipe_saver/recipe_saver_recipe.svg',
+  //       title: 'Full Recipe'
+  //     }
+  //   ],
+  //   shortBio: `The Recipe Saver application offers a convenient and user-friendly platform for storing, organizing, and accessing a wide range of recipes. Ideal for anyone from cooking novices to seasoned chefs, the app provides features like advanced search filters, a shopping list converter, and cloud-based storage, making meal planning and preparation simpler and more enjoyable. With the ability to manage recipes from various sources in one place, users can save time and effort, focusing on what they love most: cooking and experimenting with new dishes.`,
+  //   longBio: `The Recipe Saver application is a revolutionary tool designed for culinary enthusiasts and home cooks seeking an organized, efficient way to store and manage their favorite recipes. With an intuitive user interface, users can easily upload, categorize, and store recipes from various sources, making it simple to access them anytime, anywhere. The app offers a range of features including advanced search options to filter recipes by ingredients, cooking time, or dietary preferences, ensuring users can quickly find the perfect recipe for any occasion. Additionally, the application integrates a shopping list feature, allowing users to seamlessly convert recipe ingredients into a shopping list, thereby streamlining the meal preparation process. With cloud-based storage, users can rest assured that their recipes are safe and accessible across multiple devices. The Recipe Saver application is more than just a digital cookbook; it's a companion for anyone passionate about cooking and looking for a hassle-free way to explore, save, and organize their culinary repertoire.`,
+  //   link: 'https://app.jessegauthier.dev/',
+  //   tags: ['API', 'Vue', 'Web Development'],
+  //   id: 1
+  // },
   {
     title: 'Contact Manager',
     type: 'React & Firebase',
     primaryImage: '/assets/projects/contact_book/contact_book1.png',
     images: [
       {
-        src: '/assets/projects/contact_book/contact_book2.png',
-        title: 'New Contact'
-      },
-      {
         src: '/assets/projects/contact_book/contact_book3.png',
         title: 'Contact Information Card'
       },
       {
-        src: '/assets/projects/contact_book/contact_book4.png',
+        src: '/assets/projects/contact_book/contact_book1.png',
         title: 'Edit Contact Card'
       }
     ],

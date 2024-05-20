@@ -37,7 +37,21 @@ watch(
           {{ selectedProject.title }}
         </h2>
         <div class="flex flex-wrap md:flex-nowrap justify-center">
-          <img class="w-1/2 h-[100%]" :src="selectedProject.primaryImage" />
+          <div class="w-[50%] my-2">
+            <swiper-container
+              :slides-per-view="1"
+              :space-between="spaceBetween"
+              :centered-slides="true"
+              navigation="true"
+              loop="true"
+              thumbs-swiper=".my-thumbs"
+            >
+              <swiper-slide v-for="image in selectedProject.images" :key="image.id">
+                <img :src="image.src" :alt="'Image of ' + image.title" />
+              </swiper-slide>
+            </swiper-container>
+          </div>
+
           <div class="self-center p-5 w-2/3">
             <p>{{ selectedProject.shortBio }}</p>
             <a
@@ -51,47 +65,15 @@ watch(
             </a>
           </div>
         </div>
-
-        <!-- More Information Section -->
-        <div class="hidden md:block mt-10" aria-labelledby="moreInformationHeading">
-          <h3 id="moreInformationHeading" class="my-3 text-2xl font-bold text-center">
-            More Information
-          </h3>
-          <div class="flex justify-center">
-            <div class="w-[50%] my-2">
-              <swiper-container class="my-thumbs my-4" :slides-per-view="4">
-                <swiper-slide
-                  class="cursor-pointer mx-2"
-                  v-for="image in selectedProject.images"
-                  :key="image.id"
-                >
-                  <img :src="image.src" :alt="'Image of ' + image.title" class="" />
-                </swiper-slide>
-              </swiper-container>
-              <swiper-container
-                :slides-per-view="1"
-                :space-between="spaceBetween"
-                :centered-slides="true"
-                navigation="true"
-                loop="true"
-                thumbs-swiper=".my-thumbs"
-              >
-                <swiper-slide v-for="image in selectedProject.images" :key="image.id">
-                  <img :src="image.src" :alt="'Image of ' + image.title" />
-                </swiper-slide>
-              </swiper-container>
-            </div>
-            <div id="secondaryContent" class="">
-              <p class="text-lg p-5 w-[80%] text-justify">{{ selectedProject.longBio }}</p>
-            </div>
-          </div>
-        </div>
       </div>
       <p class="text-md md:hidden text-center mt-5" role="alert">
         For best viewing, please visit this page on a larger device.
       </p>
     </div>
-    <ProjectSideBar class="hidden lg:block" :projects="projects" />
+    <!-- <ProjectSideBar class="hidden lg:block" :projects="projects" /> -->
+    <router-link class="btn orange-bg p-5 block w-fit rounded-xl mt-5 mx-auto" to="/projects"
+      >More Projects</router-link
+    >
   </div>
 </template>
 
