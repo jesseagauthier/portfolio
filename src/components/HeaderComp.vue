@@ -30,10 +30,42 @@
         id="navigation"
         class="hidden md:flex capitalize items-center justify-center mt-3 md:mt-0"
       >
-        <li v-for="link in navigationLinks" :key="link.name" class="mx-2 p-2 h-fit">
-          <a :href="link.url" class="sub-heading-text text-lg font-medium hover-orange">{{
-            link.name
-          }}</a>
+        <li class="mx-2 p-2 h-fit">
+          <router-link to="/" class="sub-heading-text text-lg font-medium hover-orange"
+            >Home</router-link
+          >
+        </li>
+        <li class="mx-2 p-2 h-fit">
+          <router-link to="/projects" class="sub-heading-text text-lg font-medium hover-orange"
+            >Projects</router-link
+          >
+        </li>
+        <li class="mx-2 p-2 h-fit">
+          <a
+            href="https://github.com/jesseagauthier"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sub-heading-text text-lg font-medium hover-orange"
+            >GitHub</a
+          >
+        </li>
+        <li class="mx-2 p-2 h-fit">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://codepen.io/jessegauthier1994"
+            class="sub-heading-text text-lg font-medium hover-orange"
+            >CodePen</a
+          >
+        </li>
+        <li class="mx-2 p-2 h-fit">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/jesse-gauthier-475a25168/"
+            class="sub-heading-text text-lg font-medium hover-orange"
+            >LinkedIn</a
+          >
         </li>
       </ul>
 
@@ -48,12 +80,22 @@
           </svg>
         </button>
         <ul class="text-center">
-          <li
-            v-for="link in navigationLinks"
-            :key="link.name"
-            class="block p-4 text-lg font-medium hover-orange"
-          >
-            <a :href="link.url">{{ link.name }}</a>
+          <li class="block p-4 text-lg font-medium hover-orange">
+            <router-link to="/" @click="toggleMenu">Home</router-link>
+          </li>
+          <li class="block p-4 text-lg font-medium hover-orange">
+            <router-link to="/projects" @click="toggleMenu">Projects</router-link>
+          </li>
+          <li class="block p-4 text-lg font-medium hover-orange">
+            <a href="https://github.com/jesseagauthier" @click="toggleMenu">GitHub</a>
+          </li>
+          <li class="block p-4 text-lg font-medium hover-orange">
+            <a href="https://codepen.io/jessegauthier1994" @click="toggleMenu">CodePen</a>
+          </li>
+          <li class="block p-4 text-lg font-medium hover-orange">
+            <a href="https://www.linkedin.com/in/jesse-gauthier-475a25168/" @click="toggleMenu"
+              >LinkedIn</a
+            >
           </li>
         </ul>
       </div>
@@ -62,19 +104,7 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
-
-const navigationLinks = ref([
-  { name: 'Home', url: '/' },
-  { name: 'Projects', url: '/projects' },
-  { name: 'GitHub', url: 'https://github.com/jesseagauthier' },
-  { name: 'CodePen', url: 'https://codepen.io/jessegauthier1994' },
-  {
-    name: 'linkedin',
-    url: 'https://www.linkedin.com/in/jesse-gauthier-475a25168/'
-  }
-])
 
 const isMenuOpen = ref(false) // Controls the visibility of the menu
 
@@ -83,4 +113,7 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>
-<style></style>
+
+<style>
+/* Add your styles here */
+</style>
