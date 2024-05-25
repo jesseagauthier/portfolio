@@ -106,7 +106,7 @@ import { experiences } from '../data/experiences.js'
         </div>
       </section>
       <!-- Project Section -->
-      <section id="projects" class="mt-10" aria-labelledby="projects_heading">
+      <!-- <section id="projects" class="mt-10" aria-labelledby="projects_heading">
         <h2 id="projects_heading" class="text-2xl font-bold mb-4">
           Projects (Click Project Image for More Information)
         </h2>
@@ -130,7 +130,7 @@ import { experiences } from '../data/experiences.js'
             </div>
           </router-link>
         </div>
-      </section>
+      </section> -->
     </div>
   </main>
 </template>

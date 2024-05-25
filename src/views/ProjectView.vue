@@ -2,7 +2,6 @@
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '../data/projects.js'
-import ProjectSideBar from '../components/ProjectSideBar.vue'
 
 const route = useRoute()
 const selectedProject = ref(null)
