@@ -1,11 +1,26 @@
 <template>
   <div>
+    <h2 class="text-2xl">{{ props.title }}</h2>
     <!-- Gallery -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-3 mt-2">
       <a
-        class="self-center hover:scale-[1.02] shadow-md"
+        class="self-start hover:scale-[1.02] shadow-md"
         target="_blank"
-        v-for="project of projects"
+        v-for="project of WebProjects"
+        :key="project.id"
+        :href="project.link"
+      >
+        <img :src="project.image" :alt="project.name" />
+      </a>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-2xl">{{ props.titleTwo }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-3 mt-2">
+      <a
+        class="self-start hover:scale-[1.02] shadow-md"
+        target="_blank"
+        v-for="project of applicationsProjects"
         :key="project.id"
         :href="project.link"
       >
@@ -18,7 +33,29 @@
 <script setup>
 import { ref } from 'vue'
 
-const projects = ref([
+const props = defineProps(['title', 'titleTwo'])
+const applicationsProjects = ref([
+  {
+    id: 1,
+    name: 'Contact Book',
+    image: './assets/misc/contact_book1.png',
+    link: 'https://contactbook.jessegauthier.dev/'
+  },
+  {
+    id: 2,
+    name: 'Recipe Saver',
+    image: './assets/misc/recipe_saver_mealplan.svg',
+    link: 'https://recipe-saver.jessegauthier.dev/'
+  },
+  {
+    id: 3,
+    name: 'seuss',
+    image: './assets/misc/seuss.jpg',
+    link: 'https://seusstreasury.jessegauthier.dev/'
+  }
+])
+
+const WebProjects = ref([
   {
     id: 1,
     name: 'GottaGo',
