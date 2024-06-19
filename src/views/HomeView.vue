@@ -98,7 +98,8 @@ import { experiences } from '../data/experiences.js'
           <article v-for="experience in experiences" :key="experience.jobTitle" class="mb-6 flex">
             <div class="p-8 blue-bg text-center gold-bg-hover">
               <h3 class="text-xl font-bold">
-                {{ experience.jobTitle }} @ {{ experience.companyName }}
+                {{ experience.jobTitle }} @ <br />
+                {{ experience.companyName }}
               </h3>
               <p>{{ experience.period }}</p>
               <p class="text-left my-2">{{ experience.disc }}</p>
@@ -106,7 +107,7 @@ import { experiences } from '../data/experiences.js'
           </article>
         </div>
       </section>
-      <!-- Certifications -->
+      <!-- Certifications
       <section id="certifications" class="mt-10" aria-labelledby="certifications_heading">
         <h2 id="certifications_heading" class="text-2xl font-bold mb-4">Certifications</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
@@ -120,7 +121,7 @@ import { experiences } from '../data/experiences.js'
             <p>{{ certification.year }}</p>
           </article>
         </div>
-      </section>
+      </section> -->
     </div>
   </main>
 </template>
