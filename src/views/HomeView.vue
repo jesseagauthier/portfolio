@@ -9,40 +9,55 @@ import { experiences } from '../data/experiences.js'
   <main class="flex flex-col gap-6 mt-10">
     <div>
       <!-- About Section -->
-      <section id="about" class="flex flex-wrap md:flex-nowrap" aria-labelledby="tldr_title">
-        <div id="tldr" class="p-8 md:basis-2/3 lg:basis-2/5 blue-bg gold-bg-hover">
-          <h2 id="tldr_title" class="underline text-2xl heading-text font-medium mb-3 text-white">
+      <section
+        id="about"
+        class="grid grid-cols-1 lg:grid-cols-4 gap-4"
+        aria-labelledby="tldr_title"
+      >
+        <div id="tldr" class="p-8 gold-bg-hover lg:col-span-2">
+          <img src="/assets/profile.jpg" alt="" />
+          <!-- <h2 id="tldr_title" class="underline text-2xl heading-text font-medium mb-3 text-white">
             TLDR:
           </h2>
           <ul aria-label="Quick summary">
             <li>
-              Seeking Web development roles in growth-oriented, mentorship-focused organization.
+              Seeking web development roles in growth-oriented, mentorship-focused organizations.
             </li>
             <li>
-              Pursuing a degree in Interactive Media at Algonquin College, anticipating graduation
-              in March 2024.
+              Graduated with a degree in Interactive Media from Algonquin College in March 2024.
             </li>
             <li>
-              Pioneered dynamic redevelopment of County Cooperage's Shopify platform, boosting sales
-              by 320% in three months.
+              Pioneered dynamic redevelopment of The Country Cooperage's Shopify platform, boosting
+              sales by 320% in three months.
             </li>
             <li>
-              Crafted bespoke Shopify theme for brand consistency and enhanced user experience.
+              Crafted bespoke Shopify themes for brand consistency and enhanced user experience.
             </li>
-          </ul>
+            <li>
+              Proficient in full-stack development with expertise in front-end technologies such as
+              HTML, CSS, and JavaScript, and back-end frameworks like Node.js and Express.js.
+            </li>
+            <li>Experienced in database management using SQL and NoSQL databases.</li>
+            <li>
+              Successfully integrated third-party libraries and RESTful APIs to streamline online
+              transactions and enhance site performance.
+            </li>
+            <li>
+              Adept at collaborating with cross-functional teams to deliver high-quality solutions
+              that meet client requirements and exceed expectations.
+            </li>
+          </ul> -->
         </div>
-        <div id="intro" class="p-3 md:p-8 md:basis-2/3 align-middle self-center">
-          <p class="text-black md:w-[80%] mx-auto text-xl">
-            Technically minded professional with diverse experience in full-stack development,
-            specializing in front-end technologies, such as HTML, CSS, and JavaScript, as well as
-            back-end frameworks like Node.js and Express.js. Well-versed in developing responsive
-            and user-friendly web applications, with keen eye for design and usability. Proficient
-            in database management using SQL and NoSQL databases. Adept at collaborating with
-            cross-functional teams to deliver high-quality solutions that meet client requirements
-            and exceed expectations. Demonstrated ability to implement and test promotional
-            features, troubleshoot technical issues, and monitor performance metrics Skilled at
-            staying updated with latest trends and technologies in web development to drive
-            innovation and continuous improvement.
+        <div id="intro" class="flex gold-bg-hover leading-relaxed lg:col-span-2 h-[100%]">
+          <p class="text-black md:w-[80%] m-auto text-xl">
+            Web Developer with a strong technical background and extensive experience in front-end
+            technologies such as HTML, CSS, and JavaScript. Proficient in creating responsive,
+            user-friendly web applications with a focus on design and usability. Skilled in managing
+            both SQL and NoSQL databases. Experienced in working with cross-functional teams to
+            deliver high-quality solutions that meet and exceed client expectations. Expertise in
+            implementing promotional features, troubleshooting technical issues, and monitoring
+            performance metrics. Dedicated to staying current with the latest web development trends
+            and technologies to foster innovation and continuous improvement.
           </p>
         </div>
       </section>
@@ -53,9 +68,11 @@ import { experiences } from '../data/experiences.js'
           <article
             v-for="edu in education"
             :key="edu.program"
-            class="p-8 blue-bg block text-center gold-bg-hover w-full md:basis-1/2"
+            class="p-8 blue-bg text-center gold-bg-hover w-full md:basis-1/2 flex flex-col justify-center"
           >
-            <h3 class="text-medium text-xl">{{ edu.program }}</h3>
+            <p v-if="edu.honours" class="font-bold text-xl">Graduated With Honours</p>
+
+            <h3 class="text-medium text-xl m-0 self-center">{{ edu.program }}</h3>
             <p>{{ edu.institution }}</p>
             <p>{{ edu.years }}</p>
           </article>

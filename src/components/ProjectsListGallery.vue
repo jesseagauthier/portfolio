@@ -34,7 +34,7 @@
             </g>
           </svg>
         </a>
-        <a target="_blank" :href="project.github">
+        <a target="_blank" :href="project.github || ''">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -95,6 +95,13 @@ const applicationsProjects = ref([
     subtitle: 'a application that fetches pre-written reviews from a custom CMS',
     link: 'https://gamereview.jessegauthier.dev/',
     github: 'https://github.com/jesseagauthier/mtm6407-review-site-frontend'
+  },
+  {
+    id: 5,
+    name: 'Pomodoro Timer',
+    subtitle: 'a application that fetches pre-written reviews from a custom CMS',
+    link: 'https://pomodorotimer.jessegauthier.dev/ ',
+    github: ''
   }
 ])
 
